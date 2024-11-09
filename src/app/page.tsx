@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div>
+    <div className='bg-background text-foreground'>
       <p>Hi from Sunoh</p>
     </div>
   );
