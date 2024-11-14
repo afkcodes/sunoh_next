@@ -36,3 +36,7 @@ yarn-error.log*
 next-env.d.ts
 package-lock.json
 yarn.lock
+
+**/public/workbox-*.js
+**/public/sw.js
+**/public/swe-*.js

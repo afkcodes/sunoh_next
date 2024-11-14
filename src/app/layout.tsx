@@ -15,9 +15,45 @@ const lexend = localFont({
   adjustFontFallback: false,
 });
 
+const APP_NAME = 'Sunoh';
+const APP_DEFAULT_TITLE = 'Sunoh Dil Ki Dhun';
+const APP_TITLE_TEMPLATE = '%s - Sunoh Music';
+const APP_DESCRIPTION = 'Enjoy Music, in highest quality adfree';
+
 export const metadata: Metadata = {
-  title: 'Sunoh',
-  description: 'Sunoh Music',
+  applicationName: APP_NAME,
+  title: {
+    default: APP_DEFAULT_TITLE,
+    template: APP_TITLE_TEMPLATE,
+  },
+  description: APP_DESCRIPTION,
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: APP_DEFAULT_TITLE,
+    // startUpImage: [],
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  openGraph: {
+    type: 'website',
+    siteName: APP_NAME,
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary',
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+  },
 };
 
 export const viewport: Viewport = {
@@ -25,6 +61,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+  themeColor: '#0a0a0a',
 };
 
 export default function RootLayout({
