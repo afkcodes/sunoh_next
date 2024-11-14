@@ -17,9 +17,9 @@ const TileContainer: React.FC<TileContainerProps> = ({
             return (
               <li key={idx}>
                 <Tile
+                  href={componentData.href}
                   figureProps={{
                     source: componentData?.image || '',
-
                     alt: `${componentData?.title}_poster_image`,
                     radius: tileConfig.figureProps.radius,
                   }}

@@ -5,12 +5,18 @@ import Figure from '../ui/Figure/Figure';
 import TextLink from '../ui/TextLink/TextLink';
 import { tileSizeStyles } from './tileStyles';
 
-const Tile: React.FC<TileProps> = ({ size, figureProps, titleProps, subtitleProps }) => {
+const Tile: React.FC<TileProps> = ({
+  size,
+  figureProps,
+  titleProps,
+  subtitleProps,
+  href = '#',
+}) => {
   const tileSize = tileSizeStyles[size];
 
   return (
     <SafeLink
-      href=''
+      href={href}
       className={cn([
         'flex flex-col active:scale-95 transition-all duration-1000 select-none',
         tileSize,

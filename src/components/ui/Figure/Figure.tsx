@@ -15,7 +15,10 @@ const Figure: React.FC<FigureProps> = ({
   const imageSize = figureSize[size];
   const borderRadius = borderRadiusStyle[radius];
   return (
-    <Squircle cornerRadius={borderRadius} cornerSmoothing={1} className='overflow-hidden'>
+    <Squircle
+      cornerRadius={borderRadius}
+      cornerSmoothing={1}
+      className='overflow-hidden h-full w-full'>
       <figure className={cn(['relative overflow-hidden', imageSize])}>
         {IMAGE_MODE.SINGLE ? <ImageFallback {...props} /> : <ImageFallback {...props} />}
       </figure>

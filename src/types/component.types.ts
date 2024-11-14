@@ -50,6 +50,7 @@ export interface TileProps {
   subtitleProps: TextLinkProps;
   figureProps: FigureProps;
   size: Sizes;
+  href?: string;
 }
 export interface TileConfig {
   titleProps: Omit<TextLinkProps, 'text'>;
