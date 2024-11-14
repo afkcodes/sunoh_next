@@ -2,13 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  height: 100%;
+  touch-action: pan-x pan-y;
+}
+
 body {
   font-family: var(--font-lexend), sans-serif;
+  overscroll-behavior: contain;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 
