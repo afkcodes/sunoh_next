@@ -2,8 +2,8 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { fetchHomeData } from '~/api/fetchers';
-import SectionContainer from '~/components/SectionContainer/SectionContainer';
 import { dataConfigs } from '~/configs/data.config';
+import SectionContainer from '~/containers/SectionContainer/SectionContainer';
 import { isValidArray } from '~/utils/common';
 
 const Home = () => {

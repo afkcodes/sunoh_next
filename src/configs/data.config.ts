@@ -15,7 +15,7 @@ const dataConfigs = {
     subtitle: 'subtitle',
     images: 'images.1.link',
     duration: 'duration',
-    artist: 'artist',
+    artists: 'artists',
     palette: 'palette',
   },
   radio: {

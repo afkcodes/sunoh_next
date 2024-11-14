@@ -207,9 +207,49 @@ export function getArtistNames(data: ArtistsInput): string {
 }
 
 export function decodeHtmlEntities(text: string): string {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(text, 'text/html');
-  return doc.documentElement.textContent || '';
+  // Return empty string for null/undefined
+  if (!text) return '';
+
+  // Check if we're running on the server
+  if (typeof window === 'undefined') {
+    // Server-side decoding
+    return text
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#039;/g, "'")
+      .replace(/&#x27;/g, "'")
+      .replace(/&#x2F;/g, '/')
+      .replace(/&#32;/g, ' ')
+      .replace(/&nbsp;/g, ' ')
+      .replace(/&#160;/g, ' ')
+      .replace(/\&zwj;/g, '')
+      .replace(/\&zwnj;/g, '');
+  } else {
+    // Client-side decoding using DOMParser
+    try {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'text/html');
+      return doc.documentElement.textContent || '';
+    } catch (error) {
+      // Fallback to server-side method if DOMParser fails
+      console.warn('DOMParser failed, falling back to regex replacement');
+      return text
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#039;/g, "'")
+        .replace(/&#x27;/g, "'")
+        .replace(/&#x2F;/g, '/')
+        .replace(/&#32;/g, ' ')
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&#160;/g, ' ')
+        .replace(/\&zwj;/g, '')
+        .replace(/\&zwnj;/g, '');
+    }
+  }
 }
 
 export function timeToReadable(seconds: number) {

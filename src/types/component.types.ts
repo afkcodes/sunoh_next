@@ -94,3 +94,19 @@ export interface SectionProps {
   dataConfig: any;
   data: any;
 }
+
+export interface AudioItemProps {
+  audioData: any;
+  id: string;
+  image: string;
+  title: string;
+  subtitle: string;
+  duration: number;
+  onClick: (item: any) => void;
+  onOptionsClick: (item: any) => void;
+  type: 'indexed' | 'thumbnail';
+  currentProgress: number;
+  index: number;
+  // playbackState: PlayBackState;
+  currentTrackId: string;
+}
