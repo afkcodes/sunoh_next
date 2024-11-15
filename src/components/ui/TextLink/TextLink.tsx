@@ -25,6 +25,7 @@ const TextLink: React.FC<TextLinkProps> = ({
     <Fragment>
       {type === 'text' ? (
         <p className={cn([textFontSize, textFontWeight, textNumOfLines, textColor])}>
+          {/* {decodeHtmlEntities(text)} */}
           {text}
         </p>
       ) : null}

@@ -4,6 +4,9 @@ import { useQuery } from '@tanstack/react-query';
 import { endpoints } from '~/api/endpoints';
 import http from '~/api/http';
 import PlaylistHero from '~/components/HeroComponents/PlaylistHero';
+import { dataConfigs } from '~/configs/data.config';
+import AudioItemContainer from '~/containers/AudioItemContainer/AudioItemContainer';
+import { isValidArray } from '~/utils/common';
 
 const Playlist = ({ id }: { id: string }) => {
   const { data, isLoading, error } = useQuery({
@@ -16,18 +19,14 @@ const Playlist = ({ id }: { id: string }) => {
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
+
   return (
     <main className='bg-background min-h-screen'>
-      <PlaylistHero data={data.data.album} onPlay={() => {}} />
-      {[1, 2, 34, 5, 6, 7, 8, 9, 0, 11, 22, 33].map((el) => (
-        <div key={el} className='px-2 my-2'>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam obcaecati
-            labore unde quas, aliquid quam corrupti molestias tempore dolor voluptate
-            placeat magnam aperiam eaque excepturi! Soluta pariatur dolorem neque unde.
-          </p>
-        </div>
-      ))}
+      <PlaylistHero data={data?.data?.album} onPlay={() => {}} />
+      <AudioItemContainer
+        data={isValidArray(data?.data?.album?.list) ? data?.data?.album?.list : []}
+        config={dataConfigs.audio}
+      />
     </main>
   );
 };

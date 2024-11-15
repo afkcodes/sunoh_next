@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
+import Section from '~/components/Section/Section';
 import { SectionContainerProps } from '~/types/component.types';
 import { isValidArray } from '~/utils/common';
-import Section from '../Section/Section';
 
 const SectionContainer: React.FC<SectionContainerProps> = ({
   data,

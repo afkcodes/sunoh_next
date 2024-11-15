@@ -121,20 +121,21 @@ const PlaylistHero: React.FC<HeroProps> = ({
               alt={data?.title}
               fit='cover'
               size='free'
-              radius='md'
+              radius='none'
             />
           </div>
           <div className='absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent' />
           <div className='absolute inset-0 bg-gradient-to-r from-background/30' />
         </motion.div>
         {/* Content */}
-        <div className='relative flex flex-col justify-end h-full px-4 pb-4'>
-          <div className=''>
-            <div className='space-y-1' ref={titleRef}>
+        <div className='relative flex flex-col justify-end h-full px-3 pb-4'>
+          <div>
+            <div className='space-y-1 ' ref={titleRef}>
               <TextLink
                 text={data.title}
                 fontSize='3xl'
                 color='primary'
+                numOfLines={2}
                 fontWeight='bold'
               />
               {data.subtitle && (
